@@ -101,6 +101,9 @@ do
   -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.have_nerd_font = false
 
+  -- Apply customized settings for fields used inside the startup script:
+  require("personal.early")
+
   -- [[ Setting options ]]
   --  See `:help vim.o`
   -- NOTE: You can change these options as you wish!
@@ -171,6 +174,8 @@ do
   -- instead raise a dialog asking if you wish to save the current file(s)
   -- See `:help 'confirm'`
   vim.o.confirm = true
+
+  require("personal.options")
 end
 
 -- ============================================================
@@ -251,6 +256,8 @@ do
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
     callback = function() vim.hl.on_yank() end,
   })
+
+  require('personal.keymaps')
 end
 
 -- ============================================================
